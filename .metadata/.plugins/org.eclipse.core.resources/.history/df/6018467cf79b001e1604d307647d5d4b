@@ -1,0 +1,12 @@
+package com.jspiders.smswithspringmvc.service;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class StudentService {
+
+	public void addStudent(String name, String email, long mobile, byte age) {
+
+	}
+
+}

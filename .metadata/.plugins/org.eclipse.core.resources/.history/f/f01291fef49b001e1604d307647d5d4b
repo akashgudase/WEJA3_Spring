@@ -1,0 +1,11 @@
+package com.jspiders.smswithspringmvc.pojo;
+
+public class StudentPOJO {
+
+	private long id;
+	private String name;
+	private String email;
+	private long mobile;
+	private byte age;
+
+}

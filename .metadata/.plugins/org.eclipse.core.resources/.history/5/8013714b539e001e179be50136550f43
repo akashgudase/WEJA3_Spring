@@ -1,0 +1,40 @@
+package com.jspiders.smswithspringmvc.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.jspiders.smswithspringmvc.pojo.StudentPOJO;
+import com.jspiders.smswithspringmvc.repository.StudentRepository;
+
+@Component
+public class StudentService {
+
+	@Autowired
+	private StudentRepository studentRepository;
+
+	public void addStudent(String name, String email, long mobile, byte age) {
+		StudentPOJO studentPOJO = new StudentPOJO();
+		studentPOJO.setName(name);
+		studentPOJO.setEmail(email);
+		studentPOJO.setMobile(mobile);
+		studentPOJO.setAge(age);
+		studentRepository.addStudent(studentPOJO);
+	}
+
+	public List<StudentPOJO> getAllStudents() {
+		return studentRepository.getAllStudents();
+	}
+
+	public void deleteStudent(long id) {
+		StudentPOJO studentToBeDeleted = null;
+		List<StudentPOJO> students = studentRepository.getAllStudents();
+		for (StudentPOJO studentPOJO : students) {
+			if (studentPOJO.getId() == id) {
+
+			}
+		}
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.jspiders.smswithspringmvc.repository;
+
+public class StudentRepository {
+
+}
