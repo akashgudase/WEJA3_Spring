@@ -1,10 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<jsp:include page="home.jsp"></jsp:include>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<style type="text/css">
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;
+}
+
+div {
+	margin-top: 50px;
+}
+
+table {
+	width: 300px;
+	border-collapse: collapse;
+	background-color: #fff;
+	border: 1px solid #ccc;
+}
+
+td {
+	padding: 10px;
+	text-align: left;
+}
+
+input[type="text"] {
+	width: 100%;
+	padding: 8px;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+}
+
+input[type="submit"] {
+	width: 100%;
+	padding: 10px;
+	background-color: #007bff;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+	background-color: #0056b3;
+}
+
+div[align="center"] {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+h1 {
+	margin-top: 20px;
+	color: #007bff;
+}
+</style>
 </head>
 <body>
 	<div align="center">

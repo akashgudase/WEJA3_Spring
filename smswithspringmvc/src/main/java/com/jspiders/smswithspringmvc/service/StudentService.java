@@ -37,10 +37,10 @@ public class StudentService {
 			}
 		}
 		if (studentToBeDeleted == null) {
-			return "Student not found.";
+			return "Student not found";
 		} else {
 			studentRepository.deleteStudent(studentToBeDeleted);
-			return "Student deleted.";
+			return "Student deleted";
 		}
 	}
 
@@ -64,6 +64,10 @@ public class StudentService {
 		studentPOJO.setAge(age);
 		studentRepository.addStudent(studentPOJO);
 
+	}
+
+	public List<StudentPOJO> searchStudentByPattern(String pattern) {
+		return studentRepository.searchStudentByPattern(pattern);
 	}
 
 }

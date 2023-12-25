@@ -1,3 +1,5 @@
 INDEX VERSION 1.131
+C:\Programs\WEJA3_Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\199809840.index
+\smswithspringmvc\src\main\java
 C:\Programs\WEJA3_Spring\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2044684037.index
 \smswithspringmvc\src\main\java

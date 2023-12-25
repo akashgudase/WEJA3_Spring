@@ -1,9 +1,0 @@
-package com.jspiders.smswithspringmvc.service;
-
-public class StudentService {
-
-	public void addStudent(String name, String email, long mobile, byte age) {
-
-	}
-
-}

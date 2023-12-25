@@ -2,6 +2,8 @@ package com.jspiders.smswithspringmvc.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.jspiders.smswithspringmvc.pojo.AdminPOJO;
 import com.jspiders.smswithspringmvc.pojo.StudentPOJO;
 import com.jspiders.smswithspringmvc.service.StudentService;
 
@@ -19,30 +22,45 @@ public class StudentController {
 	private StudentService studentService;
 
 	@RequestMapping(path = "/add_student", method = RequestMethod.GET)
-	public String getPageToAddStudent() {
-		return "add_student";
+	public String getPageToAddStudent(HttpSession httpSession) {
+		AdminPOJO admin = (AdminPOJO) httpSession.getAttribute("admin");
+		if (admin != null) {
+			return "add_student";
+		} else {
+			return "log_in";
+		}
 	}
 
 	@RequestMapping(path = "/add_student", method = RequestMethod.POST)
 	public String addStudent(@RequestParam String name, @RequestParam String email, @RequestParam long mobile,
 			@RequestParam byte age, ModelMap modelMap) {
 		studentService.addStudent(name, email, mobile, age);
-		modelMap.addAttribute("message", "Student added.");
+		modelMap.addAttribute("message", "Student added");
 		return "add_student";
 	}
 
 	@RequestMapping(path = "/get_students", method = RequestMethod.GET)
-	public String getAllStudent(ModelMap modelMap) {
-		List<StudentPOJO> students = studentService.getAllStudents();
-		modelMap.addAttribute("students", students);
-		return "get_students";
+	public String getAllStudent(ModelMap modelMap, HttpSession httpSession) {
+		AdminPOJO admin = (AdminPOJO) httpSession.getAttribute("admin");
+		if (admin != null) {
+			List<StudentPOJO> students = studentService.getAllStudents();
+			modelMap.addAttribute("students", students);
+			return "get_students";
+		} else {
+			return "log_in";
+		}
 	}
 
 	@RequestMapping(path = "/delete_student", method = RequestMethod.GET)
-	public String getPageToDeleteStudent(ModelMap modelMap) {
-		List<StudentPOJO> students = studentService.getAllStudents();
-		modelMap.addAttribute("students", students);
-		return "delete_student";
+	public String getPageToDeleteStudent(ModelMap modelMap, HttpSession httpSession) {
+		AdminPOJO admin = (AdminPOJO) httpSession.getAttribute("admin");
+		if (admin != null) {
+			List<StudentPOJO> students = studentService.getAllStudents();
+			modelMap.addAttribute("students", students);
+			return "delete_student";
+		} else {
+			return "log_in";
+		}
 	}
 
 	@RequestMapping(path = "/delete_student", method = RequestMethod.POST)
@@ -52,13 +70,19 @@ public class StudentController {
 		List<StudentPOJO> students = studentService.getAllStudents();
 		modelMap.addAttribute("students", students);
 		return "delete_student";
+
 	}
 
 	@RequestMapping(path = "edit_student", method = RequestMethod.GET)
-	public String getPageToEditStudent(ModelMap modelMap) {
-		List<StudentPOJO> students = studentService.getAllStudents();
-		modelMap.addAttribute("students", students);
-		return "edit_student";
+	public String getPageToEditStudent(ModelMap modelMap, HttpSession httpSession) {
+		AdminPOJO admin = (AdminPOJO) httpSession.getAttribute("admin");
+		if (admin != null) {
+			List<StudentPOJO> students = studentService.getAllStudents();
+			modelMap.addAttribute("students", students);
+			return "edit_student";
+		} else {
+			return "log_in";
+		}
 	}
 
 	@RequestMapping(path = "edit_student", method = RequestMethod.POST)
@@ -74,8 +98,35 @@ public class StudentController {
 		studentService.updateStudent(id, name, email, mobile, age);
 		List<StudentPOJO> students = studentService.getAllStudents();
 		modelMap.addAttribute("students", students);
-		modelMap.addAttribute("message", "Student updated.");
+		modelMap.addAttribute("message", "Student updated");
 		return "edit_student";
+	}
+
+	@RequestMapping(path = "/home", method = RequestMethod.GET)
+	public String getHomePage(HttpSession httpSession) {
+		AdminPOJO admin = (AdminPOJO) httpSession.getAttribute("admin");
+		if (admin != null) {
+			return "home";
+		} else {
+			return "log_in";
+		}
+	}
+
+	@RequestMapping(path = "/search", method = RequestMethod.GET)
+	public String getPageToSearchStudent(HttpSession httpSession) {
+		AdminPOJO admin = (AdminPOJO) httpSession.getAttribute("admin");
+		if (admin != null) {
+			return "search";
+		} else {
+			return "log_in";
+		}
+	}
+
+	@RequestMapping(path = "/search", method = RequestMethod.POST)
+	public String searchStudentByPattern(@RequestParam String pattern, ModelMap modelMap) {
+		List<StudentPOJO> students = studentService.searchStudentByPattern(pattern);
+		modelMap.addAttribute("students", students);
+		return "search";
 	}
 
 }

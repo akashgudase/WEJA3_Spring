@@ -1,5 +1,8 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+	<%
+	RequestDispatcher requestDispatcher = request.getRequestDispatcher("log_in");
+	requestDispatcher.forward(request, response);
+	%>
 </body>
 </html>

@@ -41,4 +41,11 @@ public class StudentRepository {
 		entityTransaction.commit();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<StudentPOJO> searchStudentByPattern(String pattern) {
+		Query query = entityManager
+				.createQuery("SELECT student FROM StudentPOJO student WHERE name LIKE '%" + pattern + "%'");
+		return query.getResultList();
+	}
+
 }
