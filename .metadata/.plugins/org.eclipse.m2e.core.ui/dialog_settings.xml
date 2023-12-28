@@ -25,12 +25,14 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.jspiders.smswithspringrest"/>
 			<item value="com.jspiders.smswithspringmvc"/>
 		</list>
 		<list key="groupId">
 			<item value="com.jspiders"/>
 		</list>
 		<list key="artifactId">
+			<item value="smswithspringrest"/>
 			<item value="smswithspringmvc"/>
 		</list>
 		<list key="projectNameTemplate">

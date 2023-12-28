@@ -160,7 +160,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="smswithspringmvc" path="/smswithspringmvc" reloadable="true" source="org.eclipse.jst.j2ee.server:smswithspringmvc"/></Host>
+      <Context docBase="smswithspringrest" path="/smswithspringrest" reloadable="true" source="org.eclipse.jst.j2ee.server:smswithspringrest"/></Host>
     </Engine>
   </Service>
 </Server>

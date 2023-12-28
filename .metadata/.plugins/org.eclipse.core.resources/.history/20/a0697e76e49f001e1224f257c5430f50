@@ -1,8 +1,0 @@
-package com.jspiders.smswithspringmvc.repository;
-
-import org.springframework.stereotype.Component;
-
-@Component
-public class AdminRepository {
-
-}
