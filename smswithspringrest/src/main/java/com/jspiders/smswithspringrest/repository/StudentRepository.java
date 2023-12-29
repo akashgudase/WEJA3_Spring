@@ -31,4 +31,17 @@ public class StudentRepository {
 		return query.getResultList();
 	}
 
+	public Student getStudentById(long id) {
+		return entityManager.find(Student.class, id);
+	}
+
+	public Student deleteStudent(long id) {
+		EntityTransaction entityTransaction = entityManager.getTransaction();
+		entityTransaction.begin();
+		Student student = getStudentById(id);
+		entityManager.remove(student);
+		entityTransaction.commit();
+		return student;
+	}
+
 }
