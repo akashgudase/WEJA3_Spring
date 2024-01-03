@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.jspiders.smswithspringrest.controller.service.StudentService;
 import com.jspiders.smswithspringrest.pojo.Student;
 import com.jspiders.smswithspringrest.response.StudentResponse;
+import com.jspiders.smswithspringrest.service.StudentService;
 
 @Controller
 @ResponseBody
